@@ -14,11 +14,6 @@ public class Projectile : MonoBehaviour
         
     }
 
-    public void Launch(Vector2 direction, float force)
-    {
-        rigidbody2d.AddForce(direction * force);
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -27,6 +22,11 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
         }
         
+    }
+
+    public void Launch(Vector2 direction, float force)
+    {
+        rigidbody2d.AddForce(direction * force);
     }
 
     void OnCollisionEnter2D(Collision2D other)
