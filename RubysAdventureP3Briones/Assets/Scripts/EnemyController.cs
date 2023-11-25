@@ -9,6 +9,7 @@ public class EnemyController : MonoBehaviour
     public bool verticle;
     public float changeTime = 3.0f;
 
+    public ParticleSystem smokeEffect;
 
     Rigidbody2D rigidbody2D;     
     float timer;
@@ -72,7 +73,7 @@ public class EnemyController : MonoBehaviour
     void OnCollisionEnter2D(Collision2D other)
     {
         RubyController player = other.gameObject.GetComponent<RubyController >();
-
+        
         if (player != null)
         {
             player.ChangeHealth(-1);
@@ -87,5 +88,6 @@ public class EnemyController : MonoBehaviour
         rigidbody2D.simulated = false;
         //optional if you added the fixed animation
         animator.SetTrigger("Fixed");
+        smokeEffect.Stop();
     }
 }
